@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mokupo - Rain for your digital stars</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'paper': '#FDFCF0',
+                        'ink': '#2C3E50',
+                        'soft-blue': '#A8D8EA',
+                        'soft-pink': '#FFCAD4',
+                        'soft-mint': '#B5EAD7',
+                        'soft-peach': '#FFE5D9',
+                    },
+                    fontFamily: {
+                        'maru': ['"Zen Maru Gothic"', '"Noto Sans TC"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* 紙張質感背景 */
+        body {
+            background-color: #FDFCF0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23e8e4d9' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* 柔和動畫 */
+        .float-gentle {
+            animation: floatGentle 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatGentle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* 卡片懸停效果 */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(44, 62, 80, 0.1);
+        }
+        
+        /* 按鈕波紋效果 */
+        .btn-soft {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-soft:hover {
+            transform: scale(1.05);
+            filter: brightness(1.05);
+        }
+        
+        /* 語言切換樣式 */
+        .lang-switch {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .lang-switch:hover {
+            background-color: rgba(168, 216, 234, 0.3);
+        }
+        
+        .lang-switch.active {
+            background-color: #A8D8EA;
+            color: #2C3E50;
+        }
+        
+        /* 語言切換過渡動畫 */
+        [data-i18n] {
+            transition: opacity 0.2s ease;
+        }
+    </style>
+</head>
+<body class="font-maru text-ink min-h-screen">
+    
+    <!-- 語言切換 (固定右上角) -->
+    <nav class="fixed top-4 right-4 z-50 flex gap-1 bg-white/70 backdrop-blur-sm rounded-full p-1 shadow-sm">
+        <button class="lang-switch active px-3 py-1.5 rounded-full text-sm font-medium" data-lang="en">EN</button>
+        <button class="lang-switch px-3 py-1.5 rounded-full text-sm font-medium" data-lang="zh">繁體中文</button>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="min-h-screen flex flex-col items-center justify-center px-6 py-20">
+        <!-- 圓形圖片佔位符 -->
+        <div class="float-gentle mb-10">
+            <div class="w-40 h-40 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-soft-blue to-soft-pink flex items-center justify-center shadow-lg overflow-hidden">
+                <img 
+                    src="images/mokupo-cloud.png" 
+                    alt="Mokupo Cloud" 
+                    class="w-full h-full object-cover"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                >
+                <div class="w-full h-full flex items-center justify-center text-6xl hidden" style="display: flex;">
+                    ☁️
+                </div>
+            </div>
+        </div>
+        
+        <!-- 主標題 -->
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-wide mb-4 text-center" data-aos="fade-up" data-aos-delay="200">
+            Mokupo
+        </h1>
+        
+        <!-- 副標題 -->
+        <p class="text-lg md:text-xl text-ink/70 font-light tracking-widest text-center" data-aos="fade-up" data-aos-delay="400">
+            Rain for your digital stars.
+        </p>
+        
+        <!-- 向下滾動提示 -->
+        <div class="mt-16 animate-bounce opacity-50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="py-24 px-6">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-medium mb-8 text-ink/90" data-aos="fade-up" data-i18n="about-title">
+                ✦ About Mokupo ✦
+            </h2>
+            <div class="space-y-6 text-ink/75 leading-relaxed md:text-lg" data-aos="fade-up" data-aos-delay="150">
+                <p data-i18n="about-greeting">
+                    Hi, I'm Mokupo 🌧️
+                </p>
+                <p data-i18n="about-intro">
+                    A little cloud drifting in the digital world,
+                    <br class="hidden md:block">
+                    bringing gentle and warm raindrops to every planet.
+                </p>
+                <p data-i18n="about-philosophy">
+                    I love creating warm, healing things with a touch of fantasy.
+                    <br class="hidden md:block">
+                    Each of my creations is like a little planet that needs to be nurtured,
+                    <br class="hidden md:block">
+                    hoping to bring a bit of warm rain to your world.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-medium mb-16 text-center text-ink/90" data-aos="fade-up" data-i18n="projects-title">
+                ✦ Planets Nurtured by Mokupo ✦
+            </h2>
+            
+            <!-- 卡片容器 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                
+                <!-- 卡片 1: 微光 -->
+                <article class="card-hover bg-white/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-sm border border-white/50" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-full h-48 bg-gradient-to-br from-soft-peach to-soft-pink flex items-center justify-center overflow-hidden">
+                        <img 
+                            src="images/EmberLight.png" 
+                            alt="EmberLight" 
+                            class="w-full h-full object-cover"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="w-full h-full items-center justify-center text-6xl hidden">
+                            🕯️
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-medium mb-2" data-i18n="ember-name">EmberLight</h3>
+                        <p class="text-sm text-ink/60 mb-3 font-light" data-i18n="ember-subtitle">微光</p>
+                        <p class="text-ink/70 mb-6 leading-relaxed" data-i18n="ember-desc">
+                            A space for slowing down and speaking out. In the cracks of time, write light bottles, ignite embers, and form gentle connections with strangers.
+                        </p>
+                        <a href="#" class="btn-soft inline-block bg-soft-peach/80 text-ink px-5 py-2.5 rounded-full text-sm font-medium" data-i18n="ember-cta">
+                            Enter EmberLight ✦
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- 卡片 2: CatLife -->
+                <article class="card-hover bg-white/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-sm border border-white/50" data-aos="fade-up" data-aos-delay="250">
+                    <div class="w-full h-48 bg-gradient-to-br from-soft-mint to-soft-blue flex items-center justify-center overflow-hidden">
+                        <img 
+                            src="images/catlife.png" 
+                            alt="CatLife" 
+                            class="w-full h-full object-cover"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="w-full h-full items-center justify-center text-6xl hidden">
+                            🐱
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-medium mb-2">CatLife</h3>
+                        <p class="text-sm text-ink/60 mb-3 font-light" data-i18n="cat-subtitle">貓語日記</p>
+                        <p class="text-ink/70 mb-6 leading-relaxed" data-i18n="cat-desc">
+                            A healing digital cat companion. Let a fluffy little friend accompany you through each day.
+                        </p>
+                        <a href="#" class="btn-soft inline-block bg-soft-mint/80 text-ink px-5 py-2.5 rounded-full text-sm font-medium opacity-70 cursor-not-allowed" data-i18n="cat-cta" title="Coming soon!">
+                            Adopt a Cat 🐱
+                        </a>
+                    </div>
+                </article>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUPPORT SECTION ===== -->
+    <section class="py-24 px-6">
+        <div class="max-w-lg mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-medium mb-6 text-ink/90" data-aos="fade-up" data-i18n="support-title">
+                ✦ Support Mokupo ✦
+            </h2>
+            <p class="text-ink/60 mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="100" data-i18n="support-desc">
+                If you enjoy my creations,
+                <br>
+                you can water Mokupo with a drop ☺️
+            </p>
+            
+            <!-- Ko-fi 按鈕 -->
+            <a 
+                href="https://ko-fi.com/mokupo" 
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-soft inline-flex items-center gap-3 bg-gradient-to-r from-soft-blue to-soft-pink text-ink px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-xl"
+                data-aos="zoom-in" data-aos-delay="200"
+            >
+                <span class="text-2xl">☕</span>
+                <span>Buy Mokupo a Drop of Water 💧</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="py-16 px-6 border-t border-ink/10">
+        <div class="max-w-lg mx-auto text-center">
+            <!-- 社群連結 -->
+            <div class="flex items-center justify-center gap-6 mb-8" data-aos="fade-up">
+                <!-- Email -->
+                <a 
+                    href="mailto:mokupo.tw@gmail.com" 
+                    class="btn-soft w-12 h-12 rounded-full bg-white/60 flex items-center justify-center shadow-sm hover:bg-soft-pink/30"
+                    aria-label="Email"
+                >
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- 版權資訊 -->
+            <p class="text-sm text-ink/40" data-aos="fade-up" data-aos-delay="100">
+                © 2026 Mokupo. Made with ☁️ and 💧
+            </p>
+        </div>
+    </footer>
+
+    <!-- 初始化 AOS 動畫 -->
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50,
+            disable: 'mobile'
+        });
+    </script>
+    
+    <!-- 語言切換功能 -->
+    <script>
+        const translations = {
+            en: {
+                'about-title': '✦ About Mokupo ✦',
+                'about-greeting': 'Hi, I\'m Mokupo 🌧️',
+                'about-intro': 'A little cloud drifting in the digital world,<br class="hidden md:block">bringing gentle and warm raindrops to every planet.',
+                'about-philosophy': 'I love creating warm, healing things with a touch of fantasy.<br class="hidden md:block">Each of my creations is like a little planet that needs to be nurtured,<br class="hidden md:block">hoping to bring a bit of warm rain to your world.',
+                'projects-title': '✦ Planets Nurtured by Mokupo ✦',
+                'ember-name': 'EmberLight',
+                'ember-subtitle': '微光',
+                'ember-desc': 'A space for slowing down and speaking out. In the cracks of time, write light bottles, ignite embers, and form gentle connections with strangers.',
+                'ember-cta': 'Enter EmberLight ✦',
+                'cat-subtitle': '貓語日記',
+                'cat-desc': 'A healing digital cat companion. Let a fluffy little friend accompany you through each day.',
+                'cat-cta': 'Adopt a Cat 🐱',
+                'support-title': '✦ Support Mokupo ✦',
+                'support-desc': 'If you enjoy my creations,<br>you can water Mokupo with a drop ☺️'
+            },
+            zh: {
+                'about-title': '✦ 關於 Mokupo ✦',
+                'about-greeting': '嗨，我是 Mokupo 🌧️',
+                'about-intro': '我是一朵飄在數位世界的雲，<br class="hidden md:block">想為每顆星球帶來溫柔又溫暖的雨滴。',
+                'about-philosophy': '我喜歡創造溫暖、療癒、帶有一點奇幻感的小東西。<br class="hidden md:block">我創作的每個作品都像是一顆顆小小的、需要被灌溉的星球，<br class="hidden md:block">希望能為你的世界帶來一點點溫暖的雨水。',
+                'projects-title': '✦ Mokupo 灌溉的星球 ✦',
+                'ember-name': '微光',
+                'ember-subtitle': 'EmberLight',
+                'ember-desc': '一個讓你慢下來、說出口的空間。在時間的夾縫裡，寫下光瓶、點燃餘燼，與陌生的旅人產生微弱而溫柔的連結。',
+                'ember-cta': '進入微光世界 ✦',
+                'cat-subtitle': 'CatLife',
+                'cat-desc': '療癒系的數位貓咪。讓一隻毛茸茸的小傢伙陪伴你度過每一天。',
+                'cat-cta': '領養一隻貓 🐱',
+                'support-title': '✦ 支持 Mokupo ✦',
+                'support-desc': '如果你喜歡我的作品，<br>可以為 Mokupo 灌溉一滴水 ☺️'
+            }
+        };
+        
+        let currentLang = 'en';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+            
+            // 更新所有帶有 data-i18n 屬性的元素
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // 更新語言切換按鈕狀態
+            document.querySelectorAll('.lang-switch').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // 儲存語言偏好
+            localStorage.setItem('mokupo-lang', lang);
+        }
+        
+        // 初始化語言切換按鈕事件
+        document.querySelectorAll('.lang-switch').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                switchLanguage(lang);
+            });
+        });
+        
+        // 讀取儲存的語言偏好
+        const savedLang = localStorage.getItem('mokupo-lang');
+        if (savedLang) {
+            switchLanguage(savedLang);
+        }
+    </script>
+
+</body>
+</html>
